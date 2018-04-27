@@ -14,4 +14,11 @@ resource "aws_instance" "simple" {
 	subnet_id                   = "${element(local.subnet_ids, count.index % length(local.subnet_ids))}"
 	vpc_security_group_ids      = ["${local.security_group_ids}"]
 	iam_instance_profile        = "${local.iam_instance_profile}"
+
+	tags = "${merge(
+			var.tags,
+			map(
+				"Name", format("%s-%d", var.name_prefix, count.index + 1)
+			)
+		)}"
 }

@@ -1,5 +1,6 @@
 variable "name_prefix" {
 	description = "Name prefix for EC2 instance(s)"
+	default		= "test"
 }
 
 variable "count" {
