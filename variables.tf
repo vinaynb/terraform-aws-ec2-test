@@ -1,34 +1,12 @@
-variable "name_prefix" {
-	description = "Name prefix for EC2 instance(s)"
-	default		= "test"
-}
-
-variable "count" {
-	default     = "1"
-	description = "Number of EC2 instance(s) to be provisioned"
-}
-
 variable "instance_type" {
-	default     = "t2.micro"
-	description = "Type of EC2 instance"
+  default     = "t2.nano"
+  description = "Type of EC2 instance"
 }
 
 variable "ami" {
-	description = "AMI used to provision"
+  description = "AMI used to provision"
 }
 
-variable "network_configuration" {
-	type        = "map"
-	description = "Network configuration (enable_public, subnet_ids) used when provisioning EC2 instance(s)"
-}
-
-variable "security_configuration" {
-	type        = "map"
-	description = "Security configuration (security_group_ids, iam_instance_profile) used when provisioning EC2 instance(s)"
-}
-
-variable "tags" {
-	type        = "map"
-	description = "Addtional tags for EC2 instance(s)"
-	default     = {}
+variable "subnet_id" {
+  description = "Subnet to provision this ec2"
 }
